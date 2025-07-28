@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>محمد الرحمانى</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>محمد الرحمانى</h1>
+    <h2>للتواصل املأ النموذج التالي:</h2>
+
+    <div class="contact-wrapper">
+      <!-- النموذج -->
+      <form id="contactForm" class="contact-form" action="https://formsubmit.co/gh17mr@gmail.com" method="POST">
+        <div class="form-group">
+          <label>الاسم:</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label>الجوال:</label>
+          <input type="text" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label>الإيميل:</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>النشاط:</label>
+          <input type="text" name="activity">
+        </div>
+
+        <div class="form-group">
+          <label>المدينة:</label>
+          <input type="text" name="city">
+        </div>
+
+        <div class="form-group">
+          <label>ملخص طلب الاستشارة:</label>
+          <textarea name="message" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>اكتب الرقم الظاهر: <strong id="captchaCode">1234</strong></label>
+          <input type="text" id="captchaInput" required>
+        </div>
+
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <button type="submit">إرسال</button>
+
+        <div class="success-message" id="successMessage">
+          تم استلام طلب الاستشارة بنجاح .. يومك سعيد 🌸
+        </div>
+      </form>
+
+      <!-- الصورة -->
+      <div class="contact-image">
+        <img src="images/image.jpg" alt="صورة">
+      </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-social">
+      <h3>تابعنا على منصات التواصل:</h3>
+      <div class="social-links">
+        <a href="https://www.tiktok.com/@gh17mr" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/gh17mr" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://x.com/gh17mr" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/gh17mr" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/gh17mr" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.threads.net/@gh17mr" target="_blank"><i class="fab fa-threads"></i></a>
+        <a href="https://k.kwai.com/u/@gh17mr" target="_blank"><i class="fas fa-video"></i></a>
+        <a href="https://www.snapchat.com/add/gh17mr" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+        <a href="https://l.jaco.live/PvxjRCH39k" target="_blank"><i class="fas fa-link"></i></a>
+        <a href="https://youtube.com/@gh17mr" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://t.me/gh17mrcom" target="_blank"><i class="fab fa-telegram"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
