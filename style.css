@@ -1,4 +1,7 @@
-/* إعداد الصفحة */
+/* إعداد عام */
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
@@ -7,8 +10,7 @@ html, body {
   direction: rtl;
   font-family: 'Arial', sans-serif;
   background: #f5f5f5;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden; /* يمنع التمرير الأفقي */
 }
 
 /* الحاوية */
@@ -32,14 +34,13 @@ h2 {
   margin-bottom: 35px;
 }
 
-/* محتوى التواصل */
+/* الغلاف الرئيسي */
 .contact-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 60px;
   flex-wrap: wrap;
-  flex: 1;
 }
 
 /* الصورة */
@@ -47,7 +48,6 @@ h2 {
   flex: 1;
   max-width: 58%;
   margin-right: 5px;
-  /* margin-top: 30px; */
 }
 
 .contact-image img {
@@ -56,8 +56,6 @@ h2 {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-   
-
 }
 
 /* النموذج */
@@ -69,8 +67,6 @@ h2 {
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   min-width: 300px;
-  
-
 }
 
 .form-group {
@@ -138,7 +134,6 @@ button:hover {
   box-sizing: border-box;
 }
 
-
 .footer-social h3 {
   font-size: 22px;
   margin-bottom: 20px;
@@ -161,7 +156,7 @@ button:hover {
   color: #e00;
 }
 
-/* موبايل */
+/* شاشات الموبايل */
 @media screen and (max-width: 768px) {
   .contact-wrapper {
     flex-direction: column;
