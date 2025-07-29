@@ -13,12 +13,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const code = document.getElementById("captchaCode").textContent.trim();
     const input = document.getElementById("captchaInput").value.trim();
 
-    if (code === input) {
-      document.getElementById("successMessage").style.display = "block";
-      form.submit(); // يتم الإرسال الحقيقي هنا
-    } else {
+    if (code !== input) {
       alert("الرقم المدخل غير صحيح، حاول مرة أخرى");
-      generateCaptcha(); // توليد كود جديد بعد المحاولة
+      generateCaptcha();
+      return;
     }
+
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/ajax/gh17mr@gmail.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById("successMessage").style.display = "block";
+        form.reset();
+        generateCaptcha();
+      } else {
+        alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+      }
+    })
+    .catch(error => {
+      alert("تعذر الاتصال بالخادم. تحقق من الاتصال بالإنترنت.");
+    });
   });
 });

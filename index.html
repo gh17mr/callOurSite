@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>محمد الرحمانى</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Font Awesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -22,9 +21,7 @@
       </div>
 
       <!-- النموذج -->
- <form id="contactForm" class="contact-form" action="https://formsubmit.co/97b34d4866e8a0cbf12a21120a39469e" method="POST">
-
-
+      <form id="contactForm" class="contact-form">
         <div class="form-group">
           <label>الاسم:</label>
           <input type="text" name="name" required>
@@ -60,12 +57,9 @@
           <input type="text" id="captchaInput" required>
         </div>
 
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
         <button type="submit">إرسال</button>
 
-        <div class="success-message" id="successMessage">
+        <div class="success-message" id="successMessage" style="display: none; color: green; margin-top: 15px;">
           تم استلام طلب الاستشارة بنجاح .. يومك سعيد 🌸
         </div>
       </form>
