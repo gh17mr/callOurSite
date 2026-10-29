@@ -229,15 +229,15 @@ footer p{color:#bbb}
 <input type="hidden" name="from_name" value="موقع محمد الرحماني">
 <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
 <div class="form-grid">
-<div class="field"><label>الاسم</label><input type="text" name="الاسم" required></div>
-<div class="field"><label>رقم الجوال</label><input type="tel" name="رقم الجوال" required></div>
+<div class="field"><label>الاسم</label><input type="text" name="f_name" required></div>
+<div class="field"><label>رقم الجوال</label><input type="tel" name="f_phone" required></div>
 <div class="field"><label>البريد الإلكتروني</label><input type="email" name="email" required></div>
-<div class="field"><label>اسم المشروع</label><input type="text" name="اسم المشروع" required></div>
-<div class="field"><label>مجال المشروع</label><input type="text" name="مجال المشروع" required></div>
-<div class="field"><label>المدينة</label><input type="text" name="المدينة" required></div>
-<div class="field full"><label>رابط الموقع / المتجر ( اختياري )</label><input type="url" name="رابط الموقع / المتجر"></div>
-<div class="field full"><label>ما المشكلة التي تريد حلها ؟</label><textarea name="ما المشكلة التي تريد حلها ؟" required></textarea></div>
-<div class="field full"><label>ما الهدف الذي تريد الوصول إليه ؟</label><textarea name="ما الهدف الذي تريد الوصول إليه ؟" required></textarea></div>
+<div class="field"><label>اسم المشروع</label><input type="text" name="f_project" required></div>
+<div class="field"><label>مجال المشروع</label><input type="text" name="f_field" required></div>
+<div class="field"><label>المدينة</label><input type="text" name="f_city" required></div>
+<div class="field full"><label>رابط الموقع / المتجر ( اختياري )</label><input type="url" name="f_url"></div>
+<div class="field full"><label>ما المشكلة التي تريد حلها ؟</label><textarea name="f_problem" required></textarea></div>
+<div class="field full"><label>ما الهدف الذي تريد الوصول إليه ؟</label><textarea name="f_goal" required></textarea></div>
 <div class="field full">
 <label>اكتب الرقم الظاهر:</label>
 <div class="captcha-row">
@@ -245,7 +245,7 @@ footer p{color:#bbb}
 <button class="refresh" type="button" id="refreshCaptcha">تغيير الرقم</button>
 <input type="text" id="captchaInput" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم" required>
 </div>
-<input type="hidden" name="كود التحقق" id="captchaHidden">
+<input type="hidden" name="f_captcha" id="captchaHidden">
 <div class="form-note">كود للتحقق من الاستخدام البشري</div>
 </div>
 </div>
@@ -298,6 +298,36 @@ document.getElementById("refreshCaptcha").addEventListener("click",makeCaptcha);
 
 const consultationForm = document.getElementById("consultationForm");
 
+// يجمع البيانات في رسالة واحدة بعناوين عربية (لأن Web3Forms يبوّظ أسماء الحقول العربية)
+function buildPayload() {
+  const f = consultationForm.elements;
+  const v = n => (f[n] && f[n].value ? f[n].value.trim() : "-");
+  const lines = [
+    "الاسم: " + v("f_name"),
+    "رقم الجوال: " + v("f_phone"),
+    "البريد الإلكتروني: " + v("email"),
+    "اسم المشروع: " + v("f_project"),
+    "مجال المشروع: " + v("f_field"),
+    "المدينة: " + v("f_city"),
+    "رابط الموقع / المتجر: " + v("f_url"),
+    "",
+    "ما المشكلة التي تريد حلها؟",
+    v("f_problem"),
+    "",
+    "ما الهدف الذي تريد الوصول إليه؟",
+    v("f_goal")
+  ];
+  const data = new FormData();
+  data.append("access_key", v("access_key"));
+  data.append("subject", v("subject"));
+  data.append("from_name", v("from_name"));
+  data.append("email", v("email"));
+  data.append("replyto", v("email"));
+  if (f["botcheck"] && f["botcheck"].checked) data.append("botcheck", "on");
+  data.append("message", lines.join("\n"));
+  return data;
+}
+
 consultationForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -327,7 +357,7 @@ consultationForm.addEventListener("submit", async function (e) {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { Accept: "application/json" },
-      body: new FormData(consultationForm)
+      body: buildPayload()
     });
 
     const result = await response.json();
