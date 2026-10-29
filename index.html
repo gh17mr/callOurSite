@@ -224,7 +224,6 @@ footer p{color:#bbb}
 </div>
 <div class="form-wrap">
 <form id="consultationForm" action="https://api.web3forms.com/submit" method="POST">
-<!-- IMPORTANT: Replace b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd with the real Web3Forms Access Key -->
 <input type="hidden" name="access_key" value="b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd">
 <input type="hidden" name="subject" value="طلب استشارة جديد - محمد الرحماني">
 <input type="hidden" name="from_name" value="موقع محمد الرحماني">
@@ -314,7 +313,7 @@ consultationForm.addEventListener("submit", async function (e) {
     return;
   }
 
-  if (!accessKey || accessKey === "b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd") {
+  if (!accessKey) {
     msg.className = "message err";
     msg.textContent = "لم يتم إعداد خدمة الإرسال بعد. يرجى المحاولة لاحقًا.";
     return;
