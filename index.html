@@ -1,1426 +1,354 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="محمد الرحماني | خبير تسويق وتطوير أعمال">
+<title>محمد الرحماني | خبير تسويق وتطوير أعمال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#070707; --black2:#101010; --gold:#d4af37; --gold2:#f0cf63;
+  --white:#fff; --muted:#c8c8c8; --line:rgba(212,175,55,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Cairo",Arial,sans-serif;background:var(--black);color:var(--white);
+  line-height:2;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+section{padding:90px 0;border-bottom:1px solid var(--line)}
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  background:radial-gradient(circle at 20% 20%,rgba(212,175,55,.13),transparent 32%),
+             radial-gradient(circle at 80% 80%,rgba(212,175,55,.08),transparent 28%),var(--black);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,transparent 0 48%,rgba(212,175,55,.035) 48% 52%,transparent 52%);
+}
+.hero-content{position:relative;z-index:1;max-width:850px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.5px;margin-bottom:10px}
+h1{font-size:clamp(38px,6vw,72px);line-height:1.25;margin-bottom:20px}
+h1 span{color:var(--gold)}
+.hero p.lead{font-size:clamp(19px,2.4vw,28px);color:#eee;line-height:1.9;max-width:800px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-width:180px;
+  padding:12px 24px;border:1px solid var(--gold);border-radius:6px;
+  color:var(--gold);font-weight:700;transition:.25s;cursor:pointer;background:transparent;
+}
+.btn.primary{background:var(--gold);color:#050505}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,175,55,.2)}
+.section-title{font-size:36px;color:var(--gold);margin-bottom:30px;line-height:1.4}
+.text p{font-size:18px;color:#eee;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{
+  background:linear-gradient(145deg,#111,#0b0b0b);border:1px solid var(--line);
+  border-radius:12px;padding:28px;transition:.25s;
+}
+.card:hover{border-color:rgba(212,175,55,.55);transform:translateY(-3px)}
+.card h3{color:var(--gold2);font-size:23px;margin-bottom:10px}
+.card p{color:#ddd;font-size:16px;line-height:1.95}
+.expertise{display:flex;flex-wrap:wrap;gap:12px}
+.tag{border:1px solid var(--line);padding:9px 16px;border-radius:30px;color:#eee;background:#0d0d0d}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:28px}
+.stat{padding:22px 14px;text-align:center;border:1px solid var(--line);border-radius:10px;background:#0d0d0d}
+.stat strong{display:block;color:var(--gold);font-size:30px}
+.stat span{color:#eee;font-size:14px}
+.list{display:grid;gap:10px}
+.list div{padding:12px 18px;border-right:3px solid var(--gold);background:#0d0d0d;color:#eee}
+.cta{
+  text-align:center;background:radial-gradient(circle at center,rgba(212,175,55,.12),transparent 55%),#090909;
+}
+.cta h2{font-size:clamp(30px,5vw,52px);color:var(--gold);line-height:1.4;margin-bottom:15px}
+.cta p{font-size:19px;color:#eee;max-width:850px;margin:0 auto}
+.form-wrap{max-width:850px;margin:30px auto 0;background:#0c0c0c;border:1px solid var(--line);border-radius:14px;padding:30px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{color:#eee;font-weight:600}
+input,textarea{
+  width:100%;background:#050505;color:#fff;border:1px solid #333;border-radius:7px;
+  padding:12px 14px;font:inherit;outline:none;
+}
+input:focus,textarea:focus{border-color:var(--gold)}
+textarea{min-height:130px;resize:vertical}
+.captcha-row{display:flex;gap:12px;align-items:center}
+.captcha-code{
+  min-width:125px;text-align:center;background:var(--gold);color:#050505;font-weight:800;
+  border-radius:7px;padding:7px 10px;letter-spacing:4px;user-select:none;
+}
+.refresh{border:1px solid #555;background:#151515;color:#fff;border-radius:7px;padding:9px 12px;cursor:pointer}
+.form-note{font-size:13px;color:#aaa;margin-top:8px}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.socials a{border:1px solid var(--line);padding:8px 13px;border-radius:5px;color:#eee}
+.socials a:hover{color:var(--gold);border-color:var(--gold)}
+footer{padding:40px 0;text-align:center;background:#050505}
+footer h3{color:var(--gold);font-size:25px}
+footer p{color:#bbb}
+.message{display:none;margin-top:15px;padding:12px;border-radius:7px}
+.message.ok{display:block;background:rgba(35,150,80,.14);border:1px solid #287a4a;color:#b8f0cb}
+.message.err{display:block;background:rgba(180,40,40,.14);border:1px solid #8b3030;color:#ffc1c1}
 
-    <title>محمد الرحماني | خبير تسويق وتطوير أعمال</title>
+/* About section: photo and biography side-by-side on desktop */
+.about-layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:60px;align-items:center;direction:ltr}
+.about-photo{position:relative;width:100%;direction:rtl}
+.about-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:16px;border:2px solid rgba(212,175,55,.75);box-shadow:0 20px 55px rgba(0,0,0,.5)}
+.about-photo:after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid rgba(212,175,55,.3);border-radius:16px;z-index:-1}
+.about-text{direction:rtl}
+.about-text .section-title{margin-bottom:25px}
+@media(max-width:800px){
+  .about-layout{grid-template-columns:1fr;gap:25px}
+  .about-photo{max-width:330px;margin:auto}
+}
 
-    <meta name="description"
-        content="محمد الرحماني - خبير تسويق وتطوير أعمال. أساعد المشاريع والمتاجر والشركات على الوصول إلى عملائها وزيادة المبيعات.">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
-        rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+@media(max-width:800px){
+  section{padding:65px 0}.grid,.form-grid,.about-layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
+  .about-photo{max-width:330px;margin:0 auto 15px}
+  .hero{min-height:88vh}.form-wrap{padding:20px}
+}
+@media(max-width:480px){
+  .stats{grid-template-columns:1fr}.buttons .btn{width:100%}
+}
+</style>
 </head>
-
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
-    <nav class="navbar navbar-expand-lg fixed-top">
-
-        <div class="container">
-
-            <a class="navbar-brand" href="#home">
-                محمد الرحماني
-            </a>
-
-            <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
-                <i class="bi bi-list"></i>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-                <ul class="navbar-nav mx-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">
-                            الرئيسية
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">
-                            من أنا
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">
-                            خدماتي
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#why-me">
-                            لماذا أنا؟
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">
-                            الخبرات
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">
-                            المشاريع
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">
-                            تواصل معي
-                        </a>
-                    </li>
-
-                </ul>
-
-                <button class="btn-main navbar-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#consultationModal">
-
-                    اطلب استشارة
-                    <i class="bi bi-arrow-left"></i>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-    <!-- ================= HERO ================= -->
-
-    <section id="home" class="hero">
-
-        <div class="hero-bg-circle circle-one"></div>
-        <div class="hero-bg-circle circle-two"></div>
-
-        <div class="container">
-
-            <div class="row align-items-center min-vh-100">
-
-                <div class="col-lg-7">
-
-                    <div class="hero-content">
-
-                        <span class="hero-badge">
-    محمد الرحمانى | خبير تسويق وتطوير الاعمال
-    <br>
-    <span class="hero-subtitle">
-        أساعد المشاريع والمتاجر على الوصول الى عملائها وزيادة مبيعاتها
-    </span>
-</span>
-
-                        <h1>
-                            محمد الرحماني
-                        </h1>
-
-                        <!-- <h2>
-                            خبير تسويق وتطوير أعمال
-                        </h2> -->
-<p> متخصص فى التسويق وتطوير الاعمال .. أعمل على مساعدة أصحاب المشاريع والمتاجر والشركات فى بناء استراتيجيات تسويقية عملية .. جذب العملاء  .. تطوير المبيعات  .. وتحويل الفرص التسويقية الى نتائج قابلة للقياس </p>
-                       
-
-                        <div class="hero-buttons">
-
-                            <button class="btn-main"
-                                data-bs-toggle="modal"
-                                data-bs-target="#consultationModal">
-
-                                اطلب استشارة
-                                <i class="bi bi-arrow-left"></i>
-
-                            </button>
-
-                            <a href="#services" class="btn-outline">
-
-                                تعرف على خدماتي
-                                <i class="bi bi-arrow-down"></i>
-
-                            </a>
-
-                        </div>
-
-
-                        
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-lg-5 d-none d-lg-block">
-
-                    <div class="hero-person-card">
-
-                        <div class="person-photo-wrap">
-
-                            <img src="images/mohamed-alrahmani.jpeg"
-                                alt="محمد الرحماني - خبير تسويق وتطوير أعمال">
-
-                            <div class="photo-badge">
-
-                                <i class="bi bi-patch-check-fill"></i>
-
-                                <span>
-                                    خبير تسويق وتطوير أعمال
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="person-card-info">
-
-                            <div>
-                                <strong>+104</strong>
-                                <span>مشروع تجارة إلكترونية</span>
-                            </div>
-
-                            <div>
-                                <strong>+15</strong>
-                                <span>مشروع عقاري</span>
-                            </div>
-
-                            <div>
-                                <strong>+56</strong>
-                                <span>خدمات محلية</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about" class="section about-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-                    من أنا؟
-                </span>
-
-                
-
-            </div>
-
-
-            <div class="row align-items-center g-5">
-
-
-                <!-- الجزء الجديد -->
-
-                <div class="col-lg-6">
-
-                    <div class="about-text">
-
-                        
-
-                        <p>
-                            
-                            أنا 
-محمد الرحماني .. خبير ومتخصص في التسويق وتطوير الأعمال .. لدي خبرة في العمل مع 
-المشاريع والشركات والمتاجر في مجالات التسويق الرقمي .. صناعة المحتوى .. 
-الإعلانات .. توليد العملاء .. المبيعات .. وتطوير الأعمال
- 
-أؤمن 
-أن التسويق الناجح لا يعتمد فقط على الإعلان .. بل يبدأ من فهم العميل .. ومعرفة 
-احتياجه .. وتقديم العرض المناسب له في الوقت والمكان المناسب
- 
-أعمل 
-على ربط التسويق بالمبيعات .. بحيث لا يكون الهدف مجرد زيادة المشاهدات أو 
-المتابعين .. وإنما الوصول إلى عملاء وفرص ومبيعات حقيقية
-                        </p>
-
-
-                        
-
-
-                    </div>
-
-                </div>
-
-
-                <!-- الجزء الموجود سابقاً -->
-
-                <!-- <div class="col-lg-6">
-
-                    <div class="about-highlight">
-
-                        <div class="highlight-icon">
-
-                            <i class="bi bi-bullseye"></i>
-
-                        </div> -->
-
-                        <!-- <h3>
-                            من الإعلان إلى النتيجة
-                        </h3>
-
-                        <p>
-                            الهدف ليس أن يشاهد الناس إعلانك فقط،
-                            بل أن يتحول الاهتمام إلى فرصة ثم إلى عميل.
-                        </p> -->
-
-                        <div class="line"></div>
-
-
-                        <!-- <div class="process">
-
-                            <div>
-                                <span>01</span>
-                                فهم العميل
-                            </div>
-
-                            <div>
-                                <span>02</span>
-                                بناء العرض
-                            </div>
-
-                            <div>
-                                <span>03</span>
-                                الوصول للجمهور
-                            </div>
-
-                            <div>
-                                <span>04</span>
-                                تحقيق النتائج
-                            </div>
-
-                        </div> -->
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= SERVICES ================= -->
-
-    <section id="services" class="section services-section">
-
-        <div class="container">
-
-            <div class="section-heading text-center">
-
-                <span>
-                    ماذا أقدم؟
-                </span>
-
-                <h2>
-                    خدمات تساعد مشروعك
-                    <strong>
-                        على النمو
-                    </strong>
-                </h2>
-
-                <p>
-                    حلول تسويقية وتجارية مصممة لتناسب احتياجات مشروعك.
-                </p>
-
-            </div>
-
-
-            <div class="row g-4">
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-lightbulb"></i>
-                        </div>
-
-                        <h3>
-                            استشارات التسويق
-                        </h3>
-
-                        <p>
-                           تحليل 
-وضع مشروعك الحالي وتحديد الفرص والمشكلات التسويقية .. ثم وضع توصيات عملية 
-تساعدك على اتخاذ قرارات أفضل
-                        </p>
-
-                        <span class="service-number">
-                            01
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-megaphone"></i>
-                        </div>
-
-                        <h3>
-                            التسويق الرقمي
-                        </h3>
-
-                        <p>
-                                بناء 
-وتطوير الحملات التسويقية عبر المنصات الرقمية المناسبة لجمهورك .. مع التركيز على 
-النتائج وليس مجرد الإنفاق الإعلاني
-                        </p>
-
-                        <span class="service-number">
-                            02
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-diagram-3"></i>
-                        </div>
-
-                        <h3>
-                            تطوير الأعمال
-                        </h3>
-
-                        <p>
-        البحث 
-عن فرص جديدة للنمو .. تطوير الشراكات .. الوصول إلى العملاء المحتملين .. وتحويل 
-الفرص إلى أعمال
-                        </p>
-
-                        <span class="service-number">
-                            03
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-person-plus"></i>
-                        </div>
-
-                        <h3>
-                            توليد العملاء المحتملين
-                        </h3>
-
-                        <p>
-                           تصميم 
-أساليب عملية للوصول إلى العملاء المهتمين وتحويل الاهتمام إلى طلبات واستفسارات 
-وفرص بيع
-                        </p>
-
-                        <span class="service-number">
-                            04
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-file-earmark-richtext"></i>
-                        </div>
-
-                        <h3>
-                            إدارة المحتوى
-                        </h3>
-
-                        <p>
-        تطوير 
-أفكار ومحتوى يساعد علامتك التجارية على بناء حضور مستمر وزيادة ثقة العملاء بك
-                        </p>
-
-                        <span class="service-number">
-                            05
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="service-card">
-
-                        <div class="service-icon">
-                            <i class="bi bi-cart-check"></i>
-                        </div>
-
-                        <h3>
-                            تطوير المبيعات
-                        </h3>
-
-                        <p>
-                          مراجعة 
-رحلة العميل والعرض وطريقة البيع .. واكتشاف نقاط الضعف التي تمنع تحويل المهتمين 
-إلى مشترين
-                        </p>
-
-                        <span class="service-number">
-                            06
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= WHY ME ================= -->
-
-    <section id="why-me" class="section why-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-                    لماذا تعمل معي؟
-                </span>
-
-                
-
-            </div>
-
-
-            <div class="row g-4">
-
-
-                <div class="col-md-6">
-
-                    <div class="why-card">
-
-                        <div class="why-icon">
-                            <i class="bi bi-briefcase"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                خبرة عملية وليست نظرية فقط
-                            </h3>
-
-                            <p>
-                               أتعامل مع التسويق من منظور تجاري .. لأن الهدف النهائي لأي مشروع هو النمو وتحقيق الإيرادات
-
-أفكر في العميل قبل الإعلان
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <div class="why-card">
-
-                        <div class="why-icon">
-                            <i class="bi bi-person-heart"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                أفكر في العميل قبل الإعلان
-                            </h3>
-
-                            <p>
-                                قبل أن تسأل: أين أعلن؟
-                                الأهم أن تسأل: من عميلي؟ وماذا يريد؟
-                                ولماذا سيشتري مني؟
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <div class="why-card">
-
-                        <div class="why-icon">
-                            <i class="bi bi-bar-chart-line"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                أركز على النتائج
-                            </h3>
-
-                            <p>
-                        المشاهدات والمتابعون مؤشرات مهمة .. لكنها ليست الهدف النهائي .. الأهم هو الوصول إلى العملاء والفرص والمبيعات
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <div class="why-card">
-
-                        <div class="why-icon">
-                            <i class="bi bi-geo-alt"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                أفهم طبيعة السوق السعودي
-                            </h3>
-
-                            <p>
-                                أعمل على استراتيجيات تراعي طبيعة العميل
-                                والسوق والمنصات المستخدمة في السعودية.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= EXPERIENCE ================= -->
-
-    <section id="experience" class="section expertise-section">
-
-        <div class="container">
-
-            <div class="section-heading text-center">
-
-                <span>
-                    مجالات الخبرة
-                </span>
-
-                <h2>
-                    خبرات متنوعة في
-                    <strong>
-                        التسويق والأعمال
-                    </strong>
-                </h2>
-
-            </div>
-
-
-            <div class="expertise-list">
-
-                <span>التسويق الرقمي</span>
-
-                <span>التسويق بالمحتوى</span>
-
-                <span>Snapchat Ads</span>
-
-                <span>TikTok Marketing</span>
-
-                <span>Google Ads</span>
-
-                <span>Social Media Marketing</span>
-
-                <span>توليد العملاء</span>
-
-                <span>المبيعات</span>
-
-                <span>تطوير الأعمال</span>
-
-                <span>التجارة الإلكترونية</span>
-
-                <span>بناء العلامة التجارية</span>
-
-                <span>الاستشارات التسويقية</span>
-
-                <span>تحليل الحملات</span>
-
-                <span>تطوير المتاجر الإلكترونية</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section id="projects" class="section projects-section">
-
-        <div class="container">
-
-            <div class="section-heading text-center">
-
-                <span>
-                    المشاريع والتجارب
-                </span>
-
-                <h2>
-                    خبرتى لا تقتصر
-                    <strong>
-                        على مجال واحد
-                    </strong>
-                </h2>
-
-                <p>
-                    عملت وشاركت في مشاريع وتجارب متنوعة في مجالات متعددة.
-                </p>
-
-            </div>
-
-
-            <div class="row g-4">
-
-
-                <div class="col-6 col-lg">
-
-                    <div class="project-stat">
-
-                        <div class="counter" data-target="15">
-                            0
-                        </div>
-
-                        <h3>
-                            العقار والتطوير العقاري
-                        </h3>
-
-                        <p>
-                            التسويق، توليد العملاء وتطوير فرص البيع
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-6 col-lg">
-
-                    <div class="project-stat">
-
-                        <div class="counter" data-target="104">
-                            0
-                        </div>
-
-                        <h3>
-                            التجارة الإلكترونية
-                        </h3>
-
-                        <p>
-                            جذب العملاء وزيادة المبيعات
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-6 col-lg">
-
-                    <div class="project-stat">
-
-                        <div class="counter" data-target="21">
-                            0
-                        </div>
-
-                        <h3>
-                            خدمات المياه
-                        </h3>
-
-                        <p>
-                            التسويق الرقمي وتوليد الطلبات
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-6 col-lg">
-
-                    <div class="project-stat">
-
-                        <div class="counter" data-target="56">
-                            0
-                        </div>
-
-                        <h3>
-                            الخدمات المحلية
-                        </h3>
-
-                        <p>
-                            تسويق الخدمات وربط العملاء بمقدمي الخدمة
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-12 col-lg">
-
-                    <div class="project-stat">
-
-                        <div class="counter" data-target="13">
-                            0
-                        </div>
-
-                        <h3>
-                            تطوير الأعمال
-                        </h3>
-
-                        <p>
-                            البحث عن الفرص التجارية وبناء قنوات جديدة
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CONTENT ================= -->
-
-    <section class="section content-section">
-
-        <div class="container">
-
-            <div class="content-box">
-
-
-                <div>
-
-                    <span class="small-title">
-                        المحتوى والمعرفة
-                    </span>
-
-                    
-
-                    <p>
-                        أشارك خبرتي في التسويق وتطوير الأعمال من خلال محتوى
-                        عملي يساعد أصحاب المشاريع على فهم التسويق واتخاذ قرارات أفضل.
-                    </p>
-
-                </div>
-
-
-                <p>
-                    مواضيع اتحدث عنها :
-                </p>
-
-
-                <div class="topics">
-
-                    <span>كيف تحصل على عملاء جدد؟</span>
-
-                    <span>كيف تختار المسوق المناسب؟</span>
-
-                    <span>متى تبدأ بالإعلانات؟</span>
-
-                    <span>كيف تختبر حملتك الإعلانية؟</span>
-
-                    <span>كيف ترفع قيمة السلة؟</span>
-
-                    <span>لماذا يفشل الإعلان؟</span>
-
-                    <span>كيف تبني ثقة العميل؟</span>
-
-                    <span>التسويق بالمحتوى</span>
-
-                    <span>المبيعات</span>
-
-                    <span>التجارة الإلكترونية</span>
-
-                    <span>تطوير الأعمال</span>
-
-                </div>
-
-
-                <a href="https://www.linkedin.com/in/gh17mr"
-                    target="_blank"
-                    class="btn-main">
-
-                    شاهد مقالاتي
-
-                    <i class="bi bi-arrow-left"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CONSULTATION ================= -->
-
-    <section id="contact" class="section consultation-section">
-
-        <div class="container">
-
-            <div class="consultation-box">
-
-                <div class="consultation-content">
-
-                    <span>
-                        الاستشارة
-                    </span>
-
-                    <h2>
-                        لديك مشروع وتحتاج
-                        <strong>
-                            رأياً تسويقياً؟
-                        </strong>
-                    </h2>
-
-                    <p>
-                        إذا كنت محتار في طريقة التسويق .. أو لا تعرف من أين تبدأ .. أو تنفق على الإعلانات دون نتائج واضحة .. يمكنني مساعدتك في تحليل وضعك وتحديد الخطوات التي تحتاجها
-                    </p>
-
-                    <button class="btn-light-custom"
-                        data-bs-toggle="modal"
-                        data-bs-target="#consultationModal">
-
-                        احجز استشارتك الآن مجاناً
-
-                        <i class="bi bi-arrow-left"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FINAL CTA ================= -->
-
-    <section class="final-cta">
-
-        <div class="container">
-
-            <div class="cta-content">
-
-                <span>
-                    جاهز للبدء؟
-                </span>
-
-                <h2>
-                    مشروعك يحتاج خطة ..
-                    <br>
-
-                    <strong>
-                        وليس مجرد إعلان
-                    </strong>
-                </h2>
-
-                <p>
-                    إذا كنت تريد تطوير تسويق مشروعك .. الوصول إلى عملاء جدد .. أو اكتشاف الفرص التي يمكن أن تزيد مبيعاتك .. تواصل معي
-                </p>
-
-                <button class="btn-main"
-                    data-bs-toggle="modal"
-                    data-bs-target="#consultationModal">
-
-                    ابدأ من هنا
-
-                    <i class="bi bi-arrow-left"></i>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-main">
-
-
-                <div>
-
-                    <a href="#home" class="footer-logo">
-                        محمد الرحماني
-                    </a>
-
-                    <p>
-                        تسويق | تطوير أعمال | استشارات
-                    </p>
-
-                    <strong class="success-quote">
-                        لا تنتظر الإذن لتحقيق النجاح
-                    </strong>
-
-                </div>
-
-
-                <div class="footer-social">
-
-
-                    <a href="https://www.tiktok.com/@gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-tiktok"></i>
-
-                    </a>
-
-
-                    <a href="https://www.linkedin.com/in/gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-linkedin"></i>
-
-                    </a>
-
-
-                    <a href="https://x.com/gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-twitter-x"></i>
-
-                    </a>
-
-
-                    <a href="https://www.facebook.com/gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-facebook"></i>
-
-                    </a>
-
-
-                    <a href="https://www.instagram.com/gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-instagram"></i>
-
-                    </a>
-
-
-                    <a href="https://www.threads.net/@gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-threads"></i>
-
-                    </a>
-
-
-                    <a href="https://www.snapchat.com/add/gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-snapchat"></i>
-
-                    </a>
-
-
-                    <a href="https://l.jaco.live/PvxjRCH39k"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Jaco"
-                        title="Jaco">
-
-                        <i class="bi bi-camera-video"></i>
-
-                    </a>
-
-
-                    <a href="https://youtube.com/@gh17mr"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-youtube"></i>
-
-                    </a>
-
-
-                    <a href="https://t.me/gh17mrcom"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        <i class="bi bi-telegram"></i>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-                <span>
-                    © 2026 محمد الرحماني. جميع الحقوق محفوظة.
-                </span>
-
-                <a href="#home">
-
-                    العودة للأعلى
-
-                    <i class="bi bi-arrow-up"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- ================= CONSULTATION MODAL ================= -->
-
-    <div class="modal fade"
-        id="consultationModal"
-        tabindex="-1"
-        aria-hidden="true">
-
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-
-            <div class="modal-content">
-
-
-                <div class="modal-header">
-
-                    <div>
-
-                        <span>
-                            ابدأ من هنا
-                        </span>
-
-                        <h3>
-                            احجز استشارتك المجانية
-                        </h3>
-
-                    </div>
-
-
-                    <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                    </button>
-
-                </div>
-
-
-                <div class="modal-body">
-
-
-                    <form id="consultationForm" novalidate>
-
-
-                        <div class="row g-3">
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    الاسم
-                                </label>
-
-                                <input type="text"
-                                    name="name"
-                                    class="form-control"
-                                    required
-                                    placeholder="اكتب اسمك">
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    رقم الجوال
-                                </label>
-
-                                <input type="tel"
-                                    name="phone"
-                                    class="form-control"
-                                    required
-                                    placeholder="05xxxxxxxx">
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    البريد الإلكتروني
-                                </label>
-
-                                <input type="email"
-                                    name="email"
-                                    class="form-control"
-                                    required
-                                    placeholder="example@email.com">
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    اسم المشروع
-                                </label>
-
-                                <input type="text"
-                                    name="project_name"
-                                    class="form-control"
-                                    required
-                                    placeholder="اسم المشروع">
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    مجال المشروع
-                                </label>
-
-                                <input type="text"
-                                    name="project_field"
-                                    class="form-control"
-                                    required
-                                    placeholder="مثال: تجارة إلكترونية">
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    المدينة
-                                </label>
-
-                                <input type="text"
-                                    name="city"
-                                    class="form-control"
-                                    required
-                                    placeholder="المدينة">
-
-                            </div>
-
-
-                            <div class="col-12">
-
-                                <label>
-                                    رابط الموقع / المتجر
-                                    <small>
-                                        (اختياري)
-                                    </small>
-                                </label>
-
-                                <input type="url"
-                                    name="website"
-                                    class="form-control"
-                                    placeholder="https://">
-
-                            </div>
-
-
-                            <div class="col-12">
-
-                                <label>
-                                    ما المشكلة التي تريد حلها؟
-                                </label>
-
-                                <textarea name="problem"
-                                    class="form-control"
-                                    rows="4"
-                                    required
-                                    placeholder="اكتب المشكلة التي تواجهها..."></textarea>
-
-                            </div>
-
-
-                            <div class="col-12">
-
-                                <label>
-                                    ما الهدف الذي تريد الوصول إليه؟
-                                </label>
-
-                                <textarea name="goal"
-                                    class="form-control"
-                                    rows="4"
-                                    required
-                                    placeholder="اكتب الهدف الذي تريد تحقيقه..."></textarea>
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    اكتب الرقم الظاهر:
-                                </label>
-
-                                <div class="captcha-box">
-
-                                    <span id="captchaNumber">
-                                        5824
-                                    </span>
-
-                                    <button type="button"
-                                        id="refreshCaptcha">
-
-                                        <i class="bi bi-arrow-clockwise"></i>
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <label>
-                                    كود التحقق
-                                </label>
-
-                                <input type="text"
-                                    id="captchaInput"
-                                    class="form-control"
-                                    required
-                                    placeholder="اكتب الرقم">
-
-                            </div>
-
-                        </div>
-
-
-                        <div id="formMessage"></div>
-
-
-                        <button type="submit"
-                            class="btn-main submit-btn">
-
-                            إرسال طلب الاستشارة
-
-                            <i class="bi bi-send"></i>
-
-                        </button>
-
-
-                    </form>
-
-                </div>
-
-            </div>
-
-        </div>
-
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <div class="kicker">محمد الرحماني | خبير تسويق وتطوير أعمال</div>
+    <h1>أساعد المشاريع والمتاجر على الوصول إلى عملائها وزيادة مبيعاتها</h1>
+    <div class="buttons">
+      <a class="btn primary" href="#consultation">اطلب استشارة</a>
+      <a class="btn" href="#services">تعرف على خدماتي</a>
     </div>
+  </div>
+</header>
 
+<section id="about">
+<div class="container">
+  <div class="about-layout">
+    <div class="about-photo">
+      <img src="mohamed-alrahmani.jpg" alt="محمد الرحماني">
+    </div>
+    <div class="text about-text">
+      <h2 class="section-title">من أنا ؟</h2>
+      <p>أنا محمد الرحماني .. خبير ومتخصص في التسويق وتطوير الأعمال .. لدي خبرة في العمل مع المشاريع والشركات والمتاجر في مجالات التسويق الرقمي .. صناعة المحتوى .. الإعلانات .. توليد العملاء .. المبيعات .. وتطوير الأعمال</p>
+      <p>أؤمن أن التسويق الناجح لا يعتمد فقط على الإعلان .. بل يبدأ من فهم العميل .. ومعرفة احتياجه .. وتقديم العرض المناسب له في الوقت والمكان المناسب</p>
+      <p>أعمل على ربط التسويق بالمبيعات .. بحيث لا يكون الهدف مجرد زيادة المشاهدات أو المتابعين .. وإنما الوصول إلى عملاء وفرص ومبيعات حقيقية</p>
+    </div>
+  </div>
+</div>
+</section>
 
-    <!-- ================= SCRIPTS ================= -->
+<section id="services">
+<div class="container">
+<h2 class="section-title">ماذا أقدم ؟</h2>
+<div class="grid">
+<div class="card"><h3>استشارات التسويق</h3><p>تحليل وضع مشروعك الحالي وتحديد الفرص والمشكلات التسويقية .. ثم وضع توصيات عملية تساعدك على اتخاذ قرارات أفضل</p></div>
+<div class="card"><h3>التسويق الرقمي</h3><p>بناء وتطوير الحملات التسويقية عبر المنصات الرقمية المناسبة لجمهورك .. مع التركيز على النتائج وليس مجرد الإنفاق الإعلاني</p></div>
+<div class="card"><h3>تطوير الأعمال</h3><p>البحث عن فرص جديدة للنمو .. تطوير الشراكات .. الوصول إلى العملاء المحتملين .. وتحويل الفرص إلى أعمال</p></div>
+<div class="card"><h3>توليد العملاء المحتملين</h3><p>تصميم أساليب عملية للوصول إلى العملاء المهتمين وتحويل الاهتمام إلى طلبات واستفسارات وفرص بيع</p></div>
+<div class="card"><h3>إدارة المحتوى</h3><p>تطوير أفكار ومحتوى يساعد علامتك التجارية على بناء حضور مستمر وزيادة ثقة العملاء بك</p></div>
+<div class="card"><h3>تطوير المبيعات</h3><p>مراجعة رحلة العميل والعرض وطريقة البيع .. واكتشاف نقاط الضعف التي تمنع تحويل المهتمين إلى مشترين</p></div>
+</div>
+</div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+<section id="why">
+<div class="container">
+<h2 class="section-title">لماذا تعمل معي ؟</h2>
+<div class="grid">
+<div class="card"><h3>خبرة عملية وليست نظرية فقط</h3><p>أتعامل مع التسويق من منظور تجاري .. لأن الهدف النهائي لأي مشروع هو النمو وتحقيق الإيرادات</p></div>
+<div class="card"><h3>أفكر في العميل قبل الإعلان</h3><p>قبل أن تسأل : أين أعلن ؟<br>الأهم أن تسأل : من عميلي ؟ وماذا يريد ؟ ولماذا سيشتري مني ؟</p></div>
+<div class="card"><h3>أركز على النتائج</h3><p>المشاهدات والمتابعون مؤشرات مهمة .. لكنها ليست الهدف النهائي .. الأهم هو الوصول إلى العملاء والفرص والمبيعات</p></div>
+<div class="card"><h3>أفهم طبيعة السوق السعودي</h3><p>أعمل على استراتيجيات تراعي طبيعة العميل والسوق والمنصات المستخدمة في السعودية</p></div>
+</div>
+</div>
+</section>
 
-    <script src="script.js"></script>
+<section id="expertise">
+<div class="container">
+<h2 class="section-title">مجالات الخبرة</h2>
+<div class="expertise">
+<div class="tag">التسويق الرقمي</div><div class="tag">التسويق بالمحتوى</div><div class="tag">Snapchat Ads</div>
+<div class="tag">TikTok Marketing</div><div class="tag">Google Ads</div><div class="tag">Social Media Marketing</div>
+<div class="tag">توليد العملاء</div><div class="tag">المبيعات</div><div class="tag">تطوير الأعمال</div>
+<div class="tag">التجارة الإلكترونية</div><div class="tag">بناء العلامة التجارية</div><div class="tag">الاستشارات التسويقية</div>
+<div class="tag">تحليل الحملات</div><div class="tag">تطوير المتاجر الإلكترونية</div>
+</div>
+</div>
+</section>
 
+<section id="projects">
+<div class="container">
+<h2 class="section-title">المشاريع والتجارب</h2>
+<div class="text"><p>خبرتي لا تقتصر على مجال واحد</p><p>عملت وشاركت في مشاريع وتجارب متنوعة في مجالات متعددة، منها :</p></div>
+<div class="stats">
+<div class="stat"><strong>+ 15</strong><span>العقار والتطوير العقاري<br>التسويق .. توليد العملاء .. وتطوير فرص البيع</span></div>
+<div class="stat"><strong>+ 104</strong><span>التجارة الإلكترونية<br>تطوير استراتيجيات جذب العملاء وزيادة المبيعات</span></div>
+<div class="stat"><strong>+ 21</strong><span>خدمات المياه<br>التسويق الرقمي وتوليد الطلبات والعملاء</span></div>
+<div class="stat"><strong>+ 56</strong><span>الخدمات المحلية<br>تسويق الخدمات وربط العملاء بمقدمي الخدمة</span></div>
+<div class="stat"><strong>+ 13</strong><span>تطوير الأعمال<br>البحث عن الفرص التجارية وبناء قنوات جديدة للوصول إلى العملاء</span></div>
+</div>
+</div>
+</section>
+
+<section id="content">
+<div class="container">
+<h2 class="section-title">المحتوى والمعرفة</h2>
+<div class="text">
+<p>أشارك خبرتي في التسويق وتطوير الأعمال من خلال محتوى عملي يساعد أصحاب المشاريع على اتخاذ قرارات أفضل</p>
+<p>مواضيع أكتب وأتحدث عنها :</p>
+</div>
+<div class="list">
+<div>كيف تحصل على عملاء جدد ؟</div><div>كيف تختار المسوق المناسب ؟</div><div>متى تبدأ بالإعلانات ؟</div>
+<div>كيف تختبر حملتك الإعلانية ؟</div><div>كيف ترفع قيمة السلة ؟</div><div>لماذا يفشل الإعلان ؟</div>
+<div>كيف تبني ثقة العميل ؟</div><div>التسويق بالمحتوى</div><div>المبيعات</div><div>التجارة الإلكترونية</div><div>تطوير الأعمال</div>
+</div>
+<div class="buttons"><a class="btn" href="https://www.linkedin.com/in/gh17mr" target="_blank" rel="noopener">شاهد مقالاتي</a></div>
+</div>
+</section>
+
+<section id="consultation">
+<div class="container">
+<h2 class="section-title">قسم الاستشارة</h2>
+<div class="text">
+<p>لديك مشروع وتحتاج رأيا تسويقيا ؟</p>
+<p>إذا كنت محتار في طريقة التسويق .. أو لا تعرف من أين تبدأ .. أو تنفق على الإعلانات دون نتائج واضحة .. يمكنني مساعدتك في تحليل وضعك وتحديد الخطوات التي تحتاجها</p>
+</div>
+<div class="form-wrap">
+<form id="consultationForm" action="https://api.web3forms.com/submit" method="POST">
+<!-- IMPORTANT: Replace b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd with the real Web3Forms Access Key -->
+<input type="hidden" name="access_key" value="b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd">
+<input type="hidden" name="subject" value="طلب استشارة جديد - محمد الرحماني">
+<input type="hidden" name="from_name" value="موقع محمد الرحماني">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+<div class="form-grid">
+<div class="field"><label>الاسم</label><input type="text" name="الاسم" required></div>
+<div class="field"><label>رقم الجوال</label><input type="tel" name="رقم الجوال" required></div>
+<div class="field"><label>البريد الإلكتروني</label><input type="email" name="email" required></div>
+<div class="field"><label>اسم المشروع</label><input type="text" name="اسم المشروع" required></div>
+<div class="field"><label>مجال المشروع</label><input type="text" name="مجال المشروع" required></div>
+<div class="field"><label>المدينة</label><input type="text" name="المدينة" required></div>
+<div class="field full"><label>رابط الموقع / المتجر ( اختياري )</label><input type="url" name="رابط الموقع / المتجر"></div>
+<div class="field full"><label>ما المشكلة التي تريد حلها ؟</label><textarea name="ما المشكلة التي تريد حلها ؟" required></textarea></div>
+<div class="field full"><label>ما الهدف الذي تريد الوصول إليه ؟</label><textarea name="ما الهدف الذي تريد الوصول إليه ؟" required></textarea></div>
+<div class="field full">
+<label>اكتب الرقم الظاهر:</label>
+<div class="captcha-row">
+<span class="captcha-code" id="captchaCode"></span>
+<button class="refresh" type="button" id="refreshCaptcha">تغيير الرقم</button>
+<input type="text" id="captchaInput" inputmode="numeric" autocomplete="off" placeholder="اكتب الرقم" required>
+</div>
+<input type="hidden" name="كود التحقق" id="captchaHidden">
+<div class="form-note">كود للتحقق من الاستخدام البشري</div>
+</div>
+</div>
+<div class="buttons"><button class="btn primary" type="submit">احجز استشارتك الآن مجانا</button></div>
+<div id="formMessage" class="message"></div>
+</form>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<h2>مشروعك يحتاج خطة .. وليس مجرد إعلان</h2>
+<p>إذا كنت تريد تطوير تسويق مشروعك .. الوصول إلى عملاء جدد .. أو اكتشاف الفرص التي يمكن أن تزيد مبيعاتك .. تواصل معي</p>
+<div class="buttons" style="justify-content:center"><a class="btn primary" href="#consultation">ابدأ من هنا</a></div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<h3>محمد الرحماني</h3>
+<p>تسويق | تطوير أعمال | استشارات</p>
+<p>لا تنتظر الاذن لتحقيق النجاح</p>
+<div class="socials">
+<a href="https://www.tiktok.com/@gh17mr" target="_blank" rel="noopener">TikTok</a>
+<a href="https://www.linkedin.com/in/gh17mr" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://x.com/gh17mr" target="_blank" rel="noopener">X</a>
+<a href="https://www.facebook.com/gh17mr" target="_blank" rel="noopener">Facebook</a>
+<a href="https://www.instagram.com/gh17mr" target="_blank" rel="noopener">Instagram</a>
+<a href="https://www.threads.net/@gh17mr" target="_blank" rel="noopener">Threads</a>
+<a href="https://k.kwai.com/u/@gh17mr" target="_blank" rel="noopener">Kwai</a>
+<a href="https://www.snapchat.com/add/gh17mr" target="_blank" rel="noopener">Snapchat</a>
+<a href="https://l.jaco.live/PvxjRCH39k" target="_blank" rel="noopener">Jaco</a>
+<a href="https://youtube.com/@gh17mr" target="_blank" rel="noopener">YouTube</a>
+<a href="https://t.me/gh17mrcom" target="_blank" rel="noopener">Telegram</a>
+</div>
+</div>
+</footer>
+
+<script>
+let captchaValue="";
+function makeCaptcha(){
+  captchaValue=String(Math.floor(1000+Math.random()*9000));
+  document.getElementById("captchaCode").textContent=captchaValue;
+  document.getElementById("captchaHidden").value=captchaValue;
+  document.getElementById("captchaInput").value="";
+}
+makeCaptcha();
+document.getElementById("refreshCaptcha").addEventListener("click",makeCaptcha);
+
+const consultationForm = document.getElementById("consultationForm");
+
+consultationForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const input = document.getElementById("captchaInput").value.trim();
+  const msg = document.getElementById("formMessage");
+  const submitButton = consultationForm.querySelector('button[type="submit"]');
+  const accessKey = consultationForm.querySelector('[name="access_key"]').value.trim();
+
+  if (input !== captchaValue) {
+    msg.className = "message err";
+    msg.textContent = "كود التحقق غير صحيح، من فضلك اكتب الرقم الظاهر.";
+    makeCaptcha();
+    return;
+  }
+
+  if (!accessKey || accessKey === "b4f24ce7-5b0f-4667-9c55-4a6a2b0c4dcd") {
+    msg.className = "message err";
+    msg.textContent = "لم يتم إعداد خدمة الإرسال بعد. يرجى المحاولة لاحقًا.";
+    return;
+  }
+
+  msg.className = "message";
+  msg.textContent = "جاري إرسال طلب الاستشارة...";
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(consultationForm)
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      msg.className = "message ok";
+      msg.textContent = "تم إرسال طلب الاستشارة بنجاح! سنتواصل معك قريبًا.";
+      consultationForm.reset();
+      makeCaptcha();
+    } else {
+      msg.className = "message err";
+      msg.textContent = "تعذر إرسال الطلب: " + (result.message || "يرجى المحاولة مرة أخرى.");
+    }
+  } catch (error) {
+    msg.className = "message err";
+    msg.textContent = "تعذر الاتصال بخدمة الإرسال. يرجى المحاولة مرة أخرى.";
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+</script>
 </body>
-
 </html>
